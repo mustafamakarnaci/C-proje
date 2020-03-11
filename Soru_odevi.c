@@ -1,6 +1,6 @@
 /* SORU OYUNU */
 /* MUSTAFA Z.Y. MAKARNACI / 19253607 */
-/* YILDIZ ÇAÐAN / 19253081 */
+/* YILDIZ Ã‡AÄžAN / 19253081 */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,21 +10,21 @@
 #include <time.h>
 
 
-int menu (void);											/* Menü 													*/
-void oyna (void);											/* Oyunu baþlatýr.											*/
-void soru_ekle (void);										/* Sorularý ekler.											*/
-void soru_guncelle (void);									/* Sorularý günceller.										*/
-void soru_sil (void);										/* Sorularý siler.											*/
-void en_yuksek_skor (void);									/* En yüksek üç skoru gösterir.								*/
+int menu (void);										/* MenÃ¼ 													*/
+void oyna (void);										/* Oyunu baÅŸlatÄ±r.											*/
+void soru_ekle (void);										/* SorularÄ± ekler.											*/
+void soru_guncelle (void);									/* SorularÄ± gÃ¼nceller.										*/
+void soru_sil (void);										/* SorularÄ± siler.											*/
+void en_yuksek_skor (void);									/* En yÃ¼ksek Ã¼Ã§ skoru gÃ¶sterir.								*/
 void dosyaya_kaydet (void);									/* Verileri dosyaya kaydeder.								*/
-void dosyadan_yukle (void);									/* Verileri dosyadan programa yükler. 						*/
-void soru_listele (void);									/* Sorularý listeler. 										*/
-void skor_kaydet (void);									/* Skorlarý dosyaya kaydeder.								*/
-void skor_yukle (void);										/* Skorlarý dosyadan yükler.								*/
-int skor_bilgi_girisi (void);								/* Skorlarý ekler.											*/
-void skorlar (void);										/* En yükse üç skoru listeler.								*/
-char ayni_mi (char d1[], char d2[], char d3[], char d4[]);	/* Þýklarýn birbiriyle ayný olup olmadýðýn kontrol eder.	*/
-void sorular (void);										/* Bütün sorularýn listelenmesini saðlar.					*/
+void dosyadan_yukle (void);									/* Verileri dosyadan programa yÃ¼kler. 						*/
+void soru_listele (void);									/* SorularÄ± listeler. 										*/
+void skor_kaydet (void);									/* SkorlarÄ± dosyaya kaydeder.								*/
+void skor_yukle (void);										/* SkorlarÄ± dosyadan yÃ¼kler.								*/
+int skor_bilgi_girisi (void);									/* SkorlarÄ± ekler.											*/
+void skorlar (void);										/* En yÃ¼kse Ã¼Ã§ skoru listeler.								*/
+char ayni_mi (char d1[], char d2[], char d3[], char d4[]);					/* ÅžÄ±klarÄ±n birbiriyle aynÄ± olup olmadÄ±ÄŸÄ±n kontrol eder.	*/
+void sorular (void);										/* BÃ¼tÃ¼n sorularÄ±n listelenmesini saÄŸlar.					*/
 
 
 struct sorular{
@@ -42,16 +42,16 @@ struct skorlar{
 	int puan;
 } skor[100];
 
-void degistir(struct skorlar *x, struct skorlar *y); 		/* Skorlarý küçükten büyüðe doðru sýralar. 					*/
+void degistir(struct skorlar *x, struct skorlar *y); 		/* SkorlarÄ± kÃ¼Ã§Ã¼kten bÃ¼yÃ¼ÄŸe doÄŸru sÄ±ralar. 					*/
 
 int soru_adedi = 0;
 int skor_adedi = 0;
 
 void main(void) {
 
-	setlocale(LC_ALL, ""); /* Türkçe karakter desteði */
+	setlocale(LC_ALL, ""); /* TÃ¼rkÃ§e karakter desteÄŸi */
 	
-	 /* Verileri dosyadan diziye yükler. */
+	 /* Verileri dosyadan diziye yÃ¼kler. */
 	dosyadan_yukle();
 		skor_yukle();
 	
@@ -77,23 +77,23 @@ void main(void) {
 	}while(secim != 7);
 }
 
-/* FONKSÝYONLAR */
+/* FONKSÄ°YONLAR */
 
-/* MENÜ */
+/* MENÃœ */
 int menu(void)
 {
 	int sec;
 	
 	printf("[1]. Oyunu oyna\n");
 	printf("[2]. Soru ekle\n");
-	printf("[3]. Soru güncelle\n");
+	printf("[3]. Soru gÃ¼ncelle\n");
 	printf("[4]. Soru sil\n");
-	printf("[5]. En yüksek üç skor\n");
-	printf("[6]. Bütün sorular\n");
-	printf("[7]. Çýkýþ\n");
+	printf("[5]. En yÃ¼ksek Ã¼Ã§ skor\n");
+	printf("[6]. BÃ¼tÃ¼n sorular\n");
+	printf("[7]. Ã‡Ä±kÄ±ÅŸ\n");
 	
 	do{
-		printf("Lütfen seçim yapýnýz [1 - 7]:");
+		printf("LÃ¼tfen seÃ§im yapÄ±nÄ±z [1 - 7]:");
 		sec = getche() - '0';
 		printf("\n");
 	}while(sec < 1 || sec > 7);
@@ -109,8 +109,8 @@ void oyna(void)
 	char cevap;
 	
 	if(soru_adedi == 0){
-		printf("Hiç soru yok!\nLütfen soru ekleyin.\n");
-		printf("Ana menüye dönmek için bir tuþa basýn:");
+		printf("HiÃ§ soru yok!\nLÃ¼tfen soru ekleyin.\n");
+		printf("Ana menÃ¼ye dÃ¶nmek iÃ§in bir tuÅŸa basÄ±n:");
 		getch();
 		printf("\n\n");
 		return;
@@ -130,7 +130,7 @@ void oyna(void)
 		printf("B) %-15s\n", soru[random].sec_B);
 		printf("C) %-15s", soru[random].sec_C);
 		printf("D) %-15s\n", soru[random].sec_D);
-		printf("Cevabýnýz[A-B-C-D]:");
+		printf("CevabÄ±nÄ±z[A-B-C-D]:");
 		
 		don:
 		cevap = toupper(getchar());
@@ -138,16 +138,16 @@ void oyna(void)
 		if(cevap =='A' || cevap == 'B' || cevap == 'C' || cevap == 'D'){
 			if(soru[random].dogru_cevap == cevap){
 				puan++;
-				printf("\nBildiniz! Anlýk puan:%d\n\n", puan);
+				printf("\nBildiniz! AnlÄ±k puan:%d\n\n", puan);
 			}
 			else{
 				puan--;
 				if(puan < 0) puan = 0;
-				printf("\nBilemediniz! Anlýk puan:%d\n\n", puan);
+				printf("\nBilemediniz! AnlÄ±k puan:%d\n\n", puan);
 			}
 		}
 		else{
-			printf("\nCevap[A-B-C-D] þýklarýndan biri olmalýdýr:");
+			printf("\nCevap[A-B-C-D] ÅŸÄ±klarÄ±ndan biri olmalÄ±dÄ±r:");
 			goto don;
 		}
 	}
@@ -163,7 +163,7 @@ void oyna(void)
 	printf("Devam etmek istiyor musunuz [E/H]:");
 	if(toupper(getche()) == 'E') oyna();
 	
-	system("cls"); /* Ekraný temizler */
+	system("cls"); /* EkranÄ± temizler */
 }
 
 /* SORU EKLEME */
@@ -176,53 +176,53 @@ void soru_ekle(void)
 		printf("Soru id: %d\n", i);
 		soru[i].soru_id = i;
 		
-		printf("Soruyu yazýn (çýkýþ için Enter tuþuna basýn):");
+		printf("Soruyu yazÄ±n (Ã§Ä±kÄ±ÅŸ iÃ§in Enter tuÅŸuna basÄ±n):");
 		gets(soru[i].soru_metni);
-		if(!*soru[i].soru_metni) break; /* Girilen deðer boþ ise döngüyü bitirir. */
+		if(!*soru[i].soru_metni) break; /* Girilen deÄŸer boÅŸ ise dÃ¶ngÃ¼yÃ¼ bitirir. */
 		do{
-				printf("A þýkkýný girin:");
+				printf("A ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[i].sec_A);
-				printf("B þýkkýný girin:");
+				printf("B ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[i].sec_B);
-				printf("C þýkkýný girin:");
+				printf("C ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[i].sec_C);
-				printf("D þýkkýný girin:");
+				printf("D ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[i].sec_D);
 				
 				if(ayni_mi(soru[i].sec_A, soru[i].sec_B, soru[i].sec_C, soru[i].sec_D) == '0') break;
 				
-				printf("Þýklar birbirinden farklý olmalýdýr!\n");
+				printf("ÅžÄ±klar birbirinden farklÄ± olmalÄ±dÄ±r!\n");
 			}while(1);
 			
-		printf("Doðru cevap þýkkýný girin [A-B-C-D]:");
+		printf("DoÄŸru cevap ÅŸÄ±kkÄ±nÄ± girin [A-B-C-D]:");
 		soru[i].dogru_cevap = toupper(getchar());
 		getchar();
 		
 		printf("\nEklendi.\n");
 		soru_adedi++;
-		dosyaya_kaydet(); /* Dosyaya kayýt */
+		dosyaya_kaydet(); /* Dosyaya kayÄ±t */
 	}
 	
-	soru_adedi = i; /* Son girilen kayýt adedini kaydeder. */
-	system("cls"); /* Ekraný temizler */
+	soru_adedi = i; /* Son girilen kayÄ±t adedini kaydeder. */
+	system("cls"); /* EkranÄ± temizler */
 }
 
-/* SORU GÜNCELLEME */
+/* SORU GÃœNCELLEME */
 void soru_guncelle(void)
 {
 	int no;
 	char deger[3];
 	
 	if(soru_adedi == 0){
-		printf("Hiç soru yok!\nLütfen soru ekleyin.\n");
-		printf("Çýkýþ için her hangi bir tuþa basýn:");
+		printf("HiÃ§ soru yok!\nLÃ¼tfen soru ekleyin.\n");
+		printf("Ã‡Ä±kÄ±ÅŸ iÃ§in her hangi bir tuÅŸa basÄ±n:");
 		getch();
 		printf("\n\n");
 		return;
 	}
 	
 	soru_listele();
-	printf("Güncellemek istediðiniz sorunun no'sunu girin Çýkýþ için Enter tuþuna basýn:");
+	printf("GÃ¼ncellemek istediÄŸiniz sorunun no'sunu girin Ã‡Ä±kÄ±ÅŸ iÃ§in Enter tuÅŸuna basÄ±n:");
 	
 	while(1)
 	{	
@@ -235,49 +235,49 @@ void soru_guncelle(void)
 		//getchar();
 		
 		if(no < 0 || no > soru_adedi){
-			 printf("Lütfen doðru id deðerini girin:");	
+			 printf("LÃ¼tfen doÄŸru id deÄŸerini girin:");	
 			 goto don;
 		}
 		else{
-			printf("Soruyu yazýn(Çýkýþ için Enter tuþuna basýn):");
+			printf("Soruyu yazÄ±n(Ã‡Ä±kÄ±ÅŸ iÃ§in Enter tuÅŸuna basÄ±n):");
 			gets(soru[no].soru_metni);
 			if(!*soru[no].soru_metni) break;
 			strcat(soru[no].soru_metni,"?");
 			
 			do{
 				soru[no].soru_id=no;
-				printf("A þýkkýný girin:");
+				printf("A ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[no].sec_A);
-				printf("B þýkkýný girin:");
+				printf("B ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[no].sec_B);
-				printf("C þýkkýný girin:");
+				printf("C ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[no].sec_C);
-				printf("D þýkkýný girin:");
+				printf("D ÅŸÄ±kkÄ±nÄ± girin:");
 				gets(soru[no].sec_D);
 				
 				if(ayni_mi(soru[no].sec_A, soru[no].sec_B, soru[no].sec_C, soru[no].sec_D) == '0') break;
 				
-				printf("Þýklar birbirinden farklý olmalýdýr!\n");
+				printf("ÅžÄ±klar birbirinden farklÄ± olmalÄ±dÄ±r!\n");
 			}while(1);
 			
-			printf("Doðru cevap þýkkýný girin [A-B-C-D]:");
+			printf("DoÄŸru cevap ÅŸÄ±kkÄ±nÄ± girin [A-B-C-D]:");
 			soru[no].dogru_cevap = getchar();
-			printf("\nGüncellendi.\n");
+			printf("\nGÃ¼ncellendi.\n");
 			dosyaya_kaydet();
 		}
 	}
 	system("cls");
 }
 
-/* SORU SÝLME */
+/* SORU SÄ°LME */
 void soru_sil(void)
 {
 	int i, no;
 	char deger[3];
 	
 	if(soru_adedi == 0){
-		printf("Hiç soru yok!\nLütfen soru ekleyin.\n");
-		printf("Çýkýþ için her hangi bir tuþa basýn:");
+		printf("HiÃ§ soru yok!\nLÃ¼tfen soru ekleyin.\n");
+		printf("Ã‡Ä±kÄ±ÅŸ iÃ§in her hangi bir tuÅŸa basÄ±n:");
 		getch();
 		printf("\n\n");
 		return;
@@ -286,7 +286,7 @@ void soru_sil(void)
 	do{
 		i = 0;
 		
-		/* Sorularýn numaralarla beraber listelenmesi */
+		/* SorularÄ±n numaralarla beraber listelenmesi */
 		while(*soru[i].soru_metni){
 			printf("%d) %s?\n", soru[i].soru_id, soru[i].soru_metni);
 			i++;
@@ -294,7 +294,7 @@ void soru_sil(void)
 		
 		buraya_don:
 		
-		printf("ID girin (Çýkýþ için Enter tuþuna basýn):");
+		printf("ID girin (Ã‡Ä±kÄ±ÅŸ iÃ§in Enter tuÅŸuna basÄ±n):");
 		gets(deger);
 		if(!*deger) break;
 		
@@ -302,11 +302,11 @@ void soru_sil(void)
 		getchar();
 		
 		if(no < 0 || no > soru_adedi){
-			printf("Lütfen doðru id deðerini girin:");
+			printf("LÃ¼tfen doÄŸru id deÄŸerini girin:");
 			goto buraya_don;
 		}
 		
-		/* Numarasý girilen sorunun silinmesi */
+		/* NumarasÄ± girilen sorunun silinmesi */
 		else{
 			for(i = no + 1; i <= soru_adedi; i++){
 				soru[i-1] = soru[i];
@@ -330,7 +330,7 @@ void dosyaya_kaydet(void)
 	FILE *fp;
 	
 	if((fp = fopen("sorular.txt", "w")) == NULL){
-		printf("Dosya açýlamadý!\n");
+		printf("Dosya aÃ§Ä±lamadÄ±!\n");
 		exit(1);
 	}
 	
@@ -340,13 +340,13 @@ void dosyaya_kaydet(void)
 	fclose(fp);
 }
 
-/* SORULARI DOSYADAN DÝZÝYE YÜKLER */
+/* SORULARI DOSYADAN DÄ°ZÄ°YE YÃœKLER */
 void dosyadan_yukle(void)
 {
 	FILE *fp;
 	
 	if((fp = fopen("sorular.txt", "r")) == NULL){
-		printf("Dosya açýlamadý!\n");
+		printf("Dosya aÃ§Ä±lamadÄ±!\n");
 		return;
 	}
 	
@@ -356,11 +356,11 @@ void dosyadan_yukle(void)
 	fclose(fp);
 }
 
-/* SORULARIN LÝSTELENMESÝ */
+/* SORULARIN LÄ°STELENMESÄ° */
 void soru_listele(void)
 {
 	int i=0;
-	printf("Kayýtlý olan sorular\n\n");
+	printf("KayÄ±tlÄ± olan sorular\n\n");
 	do{
 		printf("\n%d) %s = ", soru[i].soru_id, soru[i].soru_metni);
 		printf("%c\n", soru[i].dogru_cevap);
@@ -375,15 +375,15 @@ void soru_listele(void)
 	}while(*soru[i].soru_metni);
 }
 
-/* NUMARALARIYLA BERABER BÜTÜN SORULAR */
+/* NUMARALARIYLA BERABER BÃœTÃœN SORULAR */
 void sorular(void)
 {
 
 	int i=0;
 	
 	if(soru_adedi == 0){
-		printf("Hiç soru yok!\nLütfen soru ekleyin.\n");
-		printf("Çýkýþ için her hangi bir tuþa basýn:");
+		printf("HiÃ§ soru yok!\nLÃ¼tfen soru ekleyin.\n");
+		printf("Ã‡Ä±kÄ±ÅŸ iÃ§in her hangi bir tuÅŸa basÄ±n:");
 		printf("\n");
 		getch();
 		return;
@@ -399,13 +399,13 @@ void sorular(void)
 	printf("\n");
 }
 
-/* SKORLARIN DOSYAYA KAYDEDÝLMESÝ */
+/* SKORLARIN DOSYAYA KAYDEDÄ°LMESÄ° */
 void skor_kaydet(void)
 {
 	FILE *sp;
 	
 	if((sp = fopen("skorlar.txt", "w")) == NULL){
-		printf("Dosya açýlamadý!\n");
+		printf("Dosya aÃ§Ä±lamadÄ±!\n");
 		exit(1);
 	}
 	
@@ -415,12 +415,12 @@ void skor_kaydet(void)
 	fclose(sp);
 }
 
-/* SKORLARIN DOSYADAN YÜKLENMESÝ */
+/* SKORLARIN DOSYADAN YÃœKLENMESÄ° */
 void skor_yukle(void)
 {
 	FILE *sp;
 	if((sp = fopen("skorlar.txt", "r")) == NULL){
-		printf("Dosya açýlamadý!\n");
+		printf("Dosya aÃ§Ä±lamadÄ±!\n");
 		return;
 	}
 	
@@ -430,13 +430,13 @@ void skor_yukle(void)
 	fclose(sp);
 }
 
-/* SKOR ÝÇÝN KULLANICI ADI EKLENMESÝ */
+/* SKOR Ä°Ã‡Ä°N KULLANICI ADI EKLENMESÄ° */
 int skor_bilgi_girisi(void)
 {
 	int i;
 	char dizi[40];
 
-	printf("Kullanýcý adý girin (Çýkýþ için Enter tuþuna basýn):");
+	printf("KullanÄ±cÄ± adÄ± girin (Ã‡Ä±kÄ±ÅŸ iÃ§in Enter tuÅŸuna basÄ±n):");
 	gets(dizi);
 	if(!*dizi) return -1;
 	
@@ -450,14 +450,14 @@ int skor_bilgi_girisi(void)
 	}
 	
 	strcpy(skor[skor_adedi].kullanici_adi,dizi);
-	printf("\nYeni kayýt yapýldý!\nMerhaba, %s\n\n",skor[skor_adedi].kullanici_adi);
+	printf("\nYeni kayÄ±t yapÄ±ldÄ±!\nMerhaba, %s\n\n",skor[skor_adedi].kullanici_adi);
 	skor[skor_adedi].puan = 0;
 	skor_kaydet();
 	skor_adedi++;
 	return skor_adedi-1;
 }
 
-/* EN YÜKSEK ÜÇ SKOR */
+/* EN YÃœKSEK ÃœÃ‡ SKOR */
 void skorlar(void)
 {
 	int i,j;
@@ -471,16 +471,16 @@ void skorlar(void)
 		}
 	}
 	
-	if(skor_adedi == 0) printf("Hiç skor yok\n");
+	if(skor_adedi == 0) printf("HiÃ§ skor yok\n");
 	else{
-		printf("En iyi üç skor\n\n");
+		printf("En iyi Ã¼Ã§ skor\n\n");
 		for(i=skor_adedi, j=1; i>=skor_adedi-2; i--,j++)
 		printf("%d) %d - %s\n", j, skor[i].puan, skor[i].kullanici_adi);
 	}
 	printf("\n");
 }
 
-/* SORU ÞIKLARININ AYNI OLUP OLMADIÐININ KONTROLÜ */
+/* SORU ÅžIKLARININ AYNI OLUP OLMADIÄžININ KONTROLÃœ */
 char ayni_mi(char d1[], char d2[], char d3[], char d4[])
 {
 	if(strcasecmp(d1, d2) == 0) return '1';
